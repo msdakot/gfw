@@ -13,6 +13,8 @@ describe('Extent widget', function() {
       .children('div.legend-value')
       .then(item => {
         //console.log('things', item.get('textContent'));
+        // want to iterate over text in 'textContent', seperate the values from units,
+        // sum, and compare to the known area of Brazil (with a tolerance)
       });
   });
 });
