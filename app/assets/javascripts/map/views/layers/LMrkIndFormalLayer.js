@@ -2,7 +2,7 @@
  *
  * @return
  */
-define(['abstract/layer/ImageLayerClass'], (ImageLayerClass) => {
+define(['abstract/layer/ImageLayerClass'], ImageLayerClass => {
   const LMrkIndFormalLayer = ImageLayerClass.extend({
     options: {
       urlTemplate:

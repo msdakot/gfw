@@ -2,7 +2,7 @@
  *
  * @return
  */
-define(['abstract/layer/ImageLayerClass'], (ImageLayerClass) => {
+define(['abstract/layer/ImageLayerClass'], ImageLayerClass => {
   const LMrkCommNotDocumentedLayer = ImageLayerClass.extend({
     options: {
       urlTemplate:
