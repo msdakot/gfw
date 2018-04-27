@@ -65,6 +65,12 @@ define(
     'map/views/layers/GnqResourceRightsLayer',
     'map/views/layers/NamResourceRightsLayer',
     'map/views/layers/LandRightsLayer',
+    'map/views/layers/LMrkCommDocumentedLayer',
+    'map/views/layers/LMrkCommNotDocumentedLayer',
+    'map/views/layers/LMrkIndDocumentedLayer',
+    'map/views/layers/LMrkIndNotDocumentedLayer',
+    'map/views/layers/LMrkIndFormalLayer',
+    'map/views/layers/LMrkIndCustomaryLayer',
     'map/views/layers/AusLandRightsLayer',
     'map/views/layers/PanLandRightsLayer',
     'map/views/layers/BraLandRightsLayer',
@@ -254,6 +260,12 @@ define(
     GnqResourceRightsLayer,
     NamResourceRightsLayer,
     LandRightsLayer,
+    LMrkCommDocumentedLayer,
+    LMrkCommNotDocumentedLayer,
+    LMrkIndDocumentedLayer,
+    LMrkIndNotDocumentedLayer,
+    LMrkIndFormalLayer,
+    LMrkIndCustomaryLayer,
     AusLandRightsLayer,
     PanLandRightsLayer,
     BraLandRightsLayer,
@@ -565,6 +577,24 @@ define(
       },
       land_rights: {
         view: LandRightsLayer
+      },
+      comm_comm_documented:{
+        view: LMrkCommDocumentedLayer
+      },
+      comm_comm_not_documented:{
+        view: LMrkCommNotDocumentedLayer
+      },
+      comm_ind_documented:{
+        view: LMrkIndDocumentedLayer
+      },
+      comm_ind_not_documented:{
+        view: LMrkIndNotDocumentedLayer
+      },
+      comm_ind_formal_land_claim:{
+        view: LMrkIndFormalLayer
+      },
+      comm_ind_customary_tenure:{
+        view: LMrkIndCustomaryLayer
       },
       aus_land_rights: {
         view: AusLandRightsLayer
