@@ -80,7 +80,6 @@ define(
     'text!map/templates/legend/biodiversity_intactness.handlebars',
     'text!map/templates/legend/biodiversity_completeness.handlebars',
     'text!map/templates/legend/landmark.handlebars'
-
   ],
   (
     mps,
@@ -256,8 +255,10 @@ define(
         bol_user_fire_frequency: Handlebars.compile(bol_user_fire_frequencyTpl),
         sentinel_tiles: Handlebars.compile(sentinel_tilesTpl),
         biodiversity_intactness: Handlebars.compile(biodiversity_intactnessTpl),
-        biodiversity_completeness: Handlebars.compile(biodiversity_completenessTpl),
-        comm_comm_documented: Handlebars.compile(landmarkTpl)
+        biodiversity_completeness: Handlebars.compile(
+          biodiversity_completenessTpl
+        ),
+        landmark_parent: Handlebars.compile(landmarkTpl)
       },
 
       events: {
