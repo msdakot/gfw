@@ -9,6 +9,7 @@ import moment from 'moment';
 
 import { getAllLayers } from 'components/map-v2/selectors';
 
+import tropicalIsos from 'data/tropical-isos.json';
 import colors from 'data/colors.json';
 import allOptions from './options';
 import allWidgets from './manifest';
@@ -86,6 +87,7 @@ export const getChildLocationData = createSelector(
   [getLocationData, selectLocation],
   (locationData, location) => {
     if (location.adm2) return null;
+    if (!location.adm0) return locationData.adm0;
     return locationData[location.adm1 ? 'adm2' : 'adm1'];
   }
 );
@@ -109,6 +111,10 @@ export const getLocationName = createSelector(
 export const getFAOLocationData = createSelector(
   [setectCountryData],
   countryData => countryData.faoCountries
+);
+
+export const isTropicalLocation = createSelector([selectLocation], location =>
+  tropicalIsos.includes(location && location.adm0)
 );
 
 export const getCategory = createSelector(
@@ -337,5 +343,6 @@ export const getWidgetsProps = createStructuredSelector({
   locationName: getLocationName,
   childLocationData: getChildLocationData,
   widgets: filterWidgetsByCategoryAndLayers,
-  noWidgetsMessage: getNoWidgetsMessage
+  noWidgetsMessage: getNoWidgetsMessage,
+  isTropical: isTropicalLocation
 });
