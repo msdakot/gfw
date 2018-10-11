@@ -47,7 +47,9 @@ export const getDataFromLayers = createSelector(
     if (!layers || !layers.length || isEmpty(data)) return null;
     const { type } = location;
     const routeType = type === 'country' ? 'admin' : type;
-    const area = data[Object.keys(data)[0]].areaHa;
+    const firstDataObj = data[Object.keys(data)[0]];
+    const area = firstDataObj.areaHa || firstDataObj.totals.areaHa;
+
     return [
       {
         label:
@@ -65,20 +67,12 @@ export const getDataFromLayers = createSelector(
           if (!analysisConfig) {
             analysisConfig = l.analysisConfig.find(a => a.type === 'geostore');
           }
-
           const { subKey, key, service, unit } = analysisConfig || {};
           const dataByService = data[service] || {};
-          let value = dataByService[key] || dataByService[subKey];
+          const value = subKey
+            ? dataByService[key] && dataByService[key][subKey]
+            : dataByService[key];
           const { params, decodeParams } = l;
-
-          if (Array.isArray(value)) {
-            value = value.length
-              ? value.map(v => ({
-                label: analysisConfig[v[analysisConfig.subKey]],
-                value: v[key]
-              }))
-              : 0;
-          }
 
           return {
             label: l.name,
