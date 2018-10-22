@@ -39,19 +39,19 @@ const buildAnalysisUrl = ({
 
   const queryParams = hasParams
     ? qs.stringify({
-      ...(period && {
-        period
-      }),
-      ...(thresh && {
-        thresh
-      }),
-      ...(geostore && {
-        geostore
-      }),
-      ...(query && {
-        [query.param]: query.value
+        ...(period && {
+          period
+        }),
+        ...(thresh && {
+          thresh
+        }),
+        ...(geostore && {
+          geostore
+        }),
+        ...(query && {
+          [query.param]: query.value
+        })
       })
-    })
     : '';
 
   return urlTemplate
@@ -101,7 +101,8 @@ export const fetchUmdLossGain = ({
           const { attributes } = data || {};
           if (attributes) {
             const fetchType = data && data.type;
-            const fetchKey = fetchType.toLowerCase();
+            const fetchKey =
+              fetchType === 'umd' ? 'umd-loss-gain' : fetchType.toLowerCase();
             return {
               ...obj,
               [fetchKey]: attributes
