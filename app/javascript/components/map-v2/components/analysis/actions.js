@@ -54,7 +54,7 @@ export const getAnalysis = createThunkAction(
           response.data.errors[0];
         const { status } = errors || {};
         const errorMessage =
-          layerName && status >= 500
+          layerName && (status >= 500 || !response)
             ? `Shape too large or service unavailable for ${layerName}.`
             : 'Service temporarily unavailable. Please try again later.';
         dispatch(
@@ -80,12 +80,12 @@ export const uploadShape = createThunkAction(
             ? response.data.data.attributes.features
             : null;
           if (features && features.length < uploadFileConfig.featureLimit) {
-            const geojson = features.reduce(union);
+            const geojson = features.filter(g => g.geometry).reduce(union);
             getGeostoreKey(geojson.geometry)
               .then(geostore => {
                 if (geostore && geostore.data && geostore.data.data) {
                   const { id } = geostore.data.data;
-                  const { query, type } = getState().location;
+                  const { query, type } = getState().location || {};
                   dispatch({
                     type,
                     payload: {
