@@ -101,7 +101,8 @@ export const parseSentence = createSelector(
     const locationData =
       locationObject && data.find(l => l.id === locationObject.value);
     const extent = locationData && locationData.extent;
-    const landPercent = 100 * extent / locationData.area || 0;
+    const area = locationData && locationData.area;
+    const landPercent = 100 * extent / area || 0;
     const globalPercent = 100 * extent / sumBy(rawData, 'extent') || 0;
     const params = {
       extentYear: settings.extentYear,

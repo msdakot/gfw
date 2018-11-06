@@ -1,17 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
-import isEqual from 'lodash/isEqual';
 
 import ComposedChart from 'components/charts/composed-chart';
 
-class WidgetAlerts extends Component {
-  shouldComponentUpdate = nextProps =>
-    (!isEqual(nextProps.settings, this.props.settings) &&
-      isEqual(nextProps.settings.activeData, this.props.settings.activeData)) ||
-    !isEqual(nextProps.data, this.props.data) ||
-    !isEqual(nextProps.config, this.props.config);
-
+class WidgetAlerts extends PureComponent {
   handleMouseMove = debounce(data => {
     const { parsePayload, setWidgetsSettings, widget, layers } = this.props;
     if (parsePayload) {
@@ -48,7 +41,6 @@ class WidgetAlerts extends Component {
 WidgetAlerts.propTypes = {
   data: PropTypes.array,
   config: PropTypes.object,
-  settings: PropTypes.object,
   setWidgetsSettings: PropTypes.func,
   parsePayload: PropTypes.func,
   widget: PropTypes.string,
