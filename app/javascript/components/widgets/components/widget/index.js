@@ -6,15 +6,7 @@ import isEqual from 'lodash/isEqual';
 
 import * as actions from 'components/widgets/actions';
 import WidgetComponent from './component';
-import { getWidgetProps } from './selectors';
-
-const makeMapStateToProps = () => {
-  const getWidgetPropsObject = getWidgetProps();
-  const mapStateToProps = (state, props) => ({
-    ...getWidgetPropsObject(state, props)
-  });
-  return mapStateToProps;
-};
+import { makeGetWidgetProps } from './selectors';
 
 class WidgetContainer extends Component {
   componentDidMount() {
@@ -90,4 +82,4 @@ WidgetContainer.propTypes = {
   widget: PropTypes.string
 };
 
-export default connect(makeMapStateToProps, actions)(WidgetContainer);
+export default connect(makeGetWidgetProps, actions)(WidgetContainer);
