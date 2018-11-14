@@ -197,11 +197,11 @@ class MapTour extends PureComponent {
       html = content.text;
       prevOnClick = e => {
         content.prev();
-        setTimeout(() => backProps.onClick(e), 300);
+        setTimeout(() => backProps.onClick(e), 400);
       };
       nextOnClick = e => {
         content.next();
-        setTimeout(() => primaryProps.onClick(e), 300);
+        setTimeout(() => primaryProps.onClick(e), 400);
       };
     }
     return (
@@ -256,7 +256,7 @@ class MapTour extends PureComponent {
           styles={{
             options: {
               overlayColor: 'rgba(17, 55, 80, 0.4)',
-              zIndex: 1000
+              zIndex: 2000
             }
           }}
         />
