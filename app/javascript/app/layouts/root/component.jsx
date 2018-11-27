@@ -9,7 +9,7 @@ import cx from 'classnames';
 import Meta from 'components/meta';
 import Header from 'components/header';
 import Button from 'components/ui/button';
-import MapMenu from 'pages/map/components/menu';
+import MapMenu from 'components/map-v2/components/menu';
 import MyGFWProvider from 'providers/mygfw-provider';
 import gfwLogo from 'assets/logos/gfw.png';
 

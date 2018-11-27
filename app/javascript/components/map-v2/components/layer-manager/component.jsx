@@ -46,6 +46,7 @@ class LayerManagerComponent extends PureComponent {
                   }
                 }
               }}
+              zIndex={1050}
             />
           )}
         {tileGeoJSON && (

@@ -268,11 +268,15 @@ export const getAllLayers = createSelector(getLayerGroups, layerGroups => {
 
   return flatten(layerGroups.map(d => d.layers))
     .filter(l => l.active)
-    .map((l, i) => ({
-      ...l,
-      zIndex:
-        l.interactionConfig && l.interactionConfig.article ? 1100 + i : 1000 - i
-    }));
+    .map((l, i) => {
+      let zIndex = l.isRecentImagery ? 500 : 1000 - i;
+      if (l.interactionConfig && l.interactionConfig.article) zIndex = 1100 + i;
+
+      return {
+        ...l,
+        zIndex
+      };
+    });
 });
 
 // all layers for importing by other components

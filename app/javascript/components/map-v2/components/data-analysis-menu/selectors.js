@@ -1,6 +1,6 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 
-import { getActiveSection } from 'pages/map/components/menu/menu-selectors';
+import { getActiveSection } from 'components/map-v2/components/menu/menu-selectors';
 import {
   getShowAnalysis,
   getHidden

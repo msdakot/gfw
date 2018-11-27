@@ -18,7 +18,7 @@ import { reduxModule as Header } from 'pages/dashboards/header';
 import { reduxModule as MapNew } from 'components/map-v2';
 import { reduxModule as MapTour } from 'components/map-v2/components/map-tour';
 import { reduxModule as MapOld } from 'components/map';
-import { reduxModule as MapMenu } from 'pages/map/components/menu';
+import { reduxModule as MapMenu } from 'components/map-v2/components/menu';
 
 // Projects (About and SGF)
 import { reduxModule as Impacts } from 'pages/about/section-impacts';
