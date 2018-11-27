@@ -6,7 +6,7 @@ import GeostoreProvider from 'providers/geostore-provider';
 import WhitelistsProvider from 'providers/whitelists-provider';
 import DatasetsProvider from 'providers/datasets-provider';
 
-import Map from 'components/map-v2';
+import Map from 'components/map-v2/main-map';
 import MapTour from 'components/map-v2/components/map-tour';
 import ModalMeta from 'components/modals/meta';
 import ModalWelcome from 'components/modals/welcome';

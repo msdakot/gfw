@@ -1,0 +1,76 @@
+@import '~styles/settings.scss';
+
+.c-main-map {
+  height: 100%;
+
+  .map-tooltip {
+    height: 100%;
+  }
+
+  .map-click-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .map-controls {
+    position: absolute;
+    top: rem(15px);
+    right: rem(15px);
+    z-index: 5;
+
+    @media screen and (min-width: $screen-m) {
+      bottom: rem(15px);
+      top: auto;
+    }
+  }
+
+  .main-map-wrapper {
+    position: relative;
+    min-height: rem(300px);
+    z-index: 1;
+
+    &.analysis {
+      .leaflet-container {
+        cursor: pointer;
+      }
+    }
+
+    &.embed {
+      min-height: calc(100vh - 60px);
+
+      .leaflet-control-container {
+        .leaflet-bottom {
+          right: rem(15px);
+        }
+      }
+    }
+  }
+
+  .data-analysis-menu {
+    position: absolute;
+    left: rem(15px);
+    top: rem(15px);
+    z-index: 6;
+
+    &.embed {
+      right: rem(15px);
+      left: auto;
+    }
+  }
+
+  .map-hover-tooltip {
+    text-align: left;
+    font-size: rem(12px);
+    padding: rem(10px) rem(15px);
+    font-weight: 300;
+
+    strong {
+      font-weight: 400;
+    }
+
+    .view-more {
+      margin-top: rem(5px);
+      font-size: rem(10px);
+    }
+  }
+}

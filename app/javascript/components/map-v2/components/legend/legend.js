@@ -18,6 +18,7 @@ const actions = {
 class Legend extends PureComponent {
   onChangeOpacity = (currentLayer, opacity) => {
     const { setMapSettings, activeDatasets } = this.props;
+    // update dataset value
     setMapSettings({
       datasets: activeDatasets.map(d => {
         const activeDataset = { ...d };
@@ -30,6 +31,7 @@ class Legend extends PureComponent {
   };
 
   onChangeOrder = layerGroupsIds => {
+    // change order of datasets
     const { setMapSettings, activeDatasets } = this.props;
     const datasetIds = activeDatasets.map(d => d.dataset);
     const datasetsDiff = difference(datasetIds, layerGroupsIds);
@@ -40,6 +42,7 @@ class Legend extends PureComponent {
   };
 
   onToggleLayer = (layer, enable) => {
+    // add dataset to top or remove
     const { activeDatasets, setMapSettings } = this.props;
     const { dataset } = layer;
     const newActiveDatasets = activeDatasets.map((newDataset, i) => {
@@ -64,6 +67,7 @@ class Legend extends PureComponent {
   };
 
   onChangeLayer = (layerGroup, newLayerKey) => {
+    // change array inside object for datasets
     const { setMapSettings, activeDatasets } = this.props;
     setMapSettings({
       datasets: activeDatasets.map(l => {
@@ -80,6 +84,7 @@ class Legend extends PureComponent {
   };
 
   onRemoveLayer = currentLayer => {
+    // remove item from array
     const { setMapSettings } = this.props;
     const activeDatasets = [...this.props.activeDatasets];
     activeDatasets.forEach((l, i) => {
@@ -101,6 +106,7 @@ class Legend extends PureComponent {
   };
 
   onChangeTimeline = (currentLayer, range) => {
+    // change param on dataset
     const { setMapSettings, activeDatasets } = this.props;
     setMapSettings({
       datasets: activeDatasets.map(l => {
@@ -119,6 +125,7 @@ class Legend extends PureComponent {
   };
 
   onChangeParam = (currentLayer, newParam) => {
+    // change param on dataset
     const { setMapSettings, activeDatasets } = this.props;
     setMapSettings({
       datasets: activeDatasets.map(l => {
